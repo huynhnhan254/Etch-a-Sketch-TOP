@@ -37,7 +37,14 @@ function createGrid(size) {
             const row = document.createElement("div");
             row.classList.add("row");
             row.addEventListener("mouseenter", ()=> {
-                row.style.backgroundColor = "aqua"
+                if (row.style.backgroundColor === "") {
+                    const randomColor = randomRGB();
+                    row.style.backgroundColor = randomColor;
+                    row.style.borderColor = randomColor;
+                }
+
+                let opacity = Number(row.style.opacity) || 0;
+                row.style.opacity = opacity + 0.1;
             });
             column.appendChild(row);
         }
@@ -59,4 +66,11 @@ function resetGrid() {
         grid.innerHTML = "";
         createGrid(size);
     }
+}
+
+function randomRGB() {
+    const r = Math.floor(Math.random() * (255 - 180 + 1)) + 180;
+    const g = Math.floor(Math.random() * (255 - 180 + 1)) + 180;
+    const b = Math.floor(Math.random() * (255 - 180 + 1)) + 180;
+    return `rgb(${r}, ${g}, ${b})`;
 }
