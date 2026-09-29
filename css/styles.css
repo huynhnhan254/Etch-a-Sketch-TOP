@@ -1,0 +1,28 @@
+/* Reset CSS */
+body, header, nav, main, footer, img, h1, h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+/* Flexbox as Grid*/
+.grid {
+    display: flex;
+    flex-direction: column;
+    width: 480px;
+    height: 480px;
+}
+
+.col {
+    display: flex; 
+    flex: 1;
+}
+
+.row {
+    flex: 1;
+    border: 1px solid black;
+}
